@@ -57,7 +57,7 @@ public class ResidentsApiController implements ResidentsApi {
         if (SearchField.NAME.toString().equals(searchField)) {
             searchResult = residentsFromDB.stream().filter(r -> r.getName().contains(value)).collect(Collectors.toList());
         } else if (SearchField.EMAIL.toString().equals(searchField)) {
-            searchResult = residentsFromDB.stream().filter(r -> r.getName().equals(value)).collect(Collectors.toList());
+            searchResult = residentsFromDB.stream().filter(r -> r.getEmail().equals(value)).collect(Collectors.toList());
         }
 
         return new ResponseEntity<List<Resident>>(searchResult, HttpStatus.OK);
